@@ -31,3 +31,30 @@
     transform: rotate(360deg);
   }
 }
+
+.half_screen {
+  width: 50%;
+  display: inline-block;
+  position: relative;
+}
+
+.chartWrapper {
+  display: flex;
+}
+
+.loadingIndicator {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@media(max-width: 767px) {
+  .half_screen {
+    width: 100%;
+    display: block;
+  }
+  .chartWrapper {
+    display: block;
+  }
+}
