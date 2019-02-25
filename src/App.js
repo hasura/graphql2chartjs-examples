@@ -1,17 +1,13 @@
 import React from 'react';
 import './App.css';
 import NavBar from './components/Navbar';
-import Router from './components/Router';
+import Home from './components/Home';
 
 const App = () => {
-  let currentPath = '';
-  if (typeof window) {
-    currentPath = window.location.pathname;
-  }
   return (
     <div>
       <NavBar />
-      <Router path={currentPath}/>
+      <Home />
     </div>
   )
 }

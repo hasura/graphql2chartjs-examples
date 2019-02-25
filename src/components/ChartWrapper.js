@@ -17,11 +17,11 @@ const chartComponents = {
   'bubble': Bubble
 };
 
-const App = ({type, query, chartType}) => {
+const App = ({type, query}) => {
   const Chart = chartComponents[type];
   const title = type[0].toUpperCase() + type.slice(1) + ' chart';
   return (
-    <div>
+    <div style={{marginBottom: '20px'}} id={type}>
       <h2 style={{margin: '10px', textAlign: 'center'}}>{title}</h2>
       <div className="chartWrapper">
         <div className="half_screen">

@@ -1,22 +1,26 @@
 import React from 'react';
+import ChartWrapper from './ChartWrapper';
+import graphqlQueries from './graphql';
 
-const Home = () => {
+const chartTypes = [
+  'bar', 'line', 'radar',
+  'doughnut', 'pie', 'scatter', 'bubble'
+];
+
+const Home = ({ path }) => {
+  console.log(path);
   return (
-    <div>
-      <div style={{margin: '20px'}}>
-        <ul>
-          <a href="bar"><h4><li>Bar</li></h4></a>
-          <a href="line"><h4><li>Line</li></h4></a>
-          <a href="pie"><h4><li>Pie</li></h4></a>
-          <a href="doughnut"><h4><li>Doughnut</li></h4></a>
-          <a href="radar"><h4><li>Radar</li></h4></a>
-          <a href="scatter"><h4><li>Scatter</li></h4></a>
-          <a href="bubble"><h4><li>Bubble</li></h4></a>
-        </ul>
-      </div>
+    <div style={{margin: '10px'}}>
+      {
+        chartTypes.map((ct) => (
+          <div>
+            <ChartWrapper type={ct} query={graphqlQueries[ct]}/>
+            <hr />
+          </div>
+        ))
+      }
     </div>
   )
 }
 
 export default Home;
-
