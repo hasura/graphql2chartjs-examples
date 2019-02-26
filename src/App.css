@@ -58,3 +58,8 @@
     display: block;
   }
 }
+
+.fiftypercent {
+  width: 100px;
+  display: inline-block;
+}

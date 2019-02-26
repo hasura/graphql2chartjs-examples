@@ -3,7 +3,7 @@ import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
 
 const Bar = () => {
   return (
-    <Navbar bg="light">
+    <Navbar bg="light" fixed="top">
       <Navbar.Brand href="/">graphql2chartjs examples</Navbar.Brand>
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav>
@@ -16,6 +16,9 @@ const Bar = () => {
             <NavDropdown.Item href="#scatter">Scatter</NavDropdown.Item>
             <NavDropdown.Item href="#bubble">Bubble</NavDropdown.Item>
           </NavDropdown>
+          <Nav.Link href="https://github.com/hasura/graphql-engine/tree/master/community/tools/graphql2chartjs">
+            Github
+          </Nav.Link>
         </Nav>
       </Navbar.Collapse>
     </Navbar>
