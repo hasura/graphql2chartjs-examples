@@ -9,7 +9,7 @@ const chartTypes = [
 
 const Home = ({ path }) => {
   return (
-    <div style={{margin: '10px'}}>
+    <div style={{margin: '10px', paddingTop: '65px'}}>
       {
         chartTypes.map((ct) => (
           <div key={ct}>
