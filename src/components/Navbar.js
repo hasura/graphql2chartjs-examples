@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
+import { Navbar, Nav, NavDropdown, Button } from 'react-bootstrap';
 
 const Bar = () => {
   return (
@@ -16,8 +16,10 @@ const Bar = () => {
             <NavDropdown.Item href="#scatter">Scatter</NavDropdown.Item>
             <NavDropdown.Item href="#bubble">Bubble</NavDropdown.Item>
           </NavDropdown>
+        </Nav>
+        <Nav>
           <Nav.Link href="https://github.com/hasura/graphql-engine/tree/master/community/tools/graphql2chartjs">
-            Github
+            <Button variant="dark">GitHub</Button>
           </Nav.Link>
         </Nav>
       </Navbar.Collapse>
