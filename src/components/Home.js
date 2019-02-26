@@ -8,12 +8,11 @@ const chartTypes = [
 ];
 
 const Home = ({ path }) => {
-  console.log(path);
   return (
     <div style={{margin: '10px'}}>
       {
         chartTypes.map((ct) => (
-          <div>
+          <div key={ct}>
             <ChartWrapper type={ct} query={graphqlQueries[ct]}/>
             <hr />
           </div>
