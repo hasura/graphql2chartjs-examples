@@ -4,7 +4,7 @@ import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import { Line, Bar, Radar, Pie, Doughnut, Scatter, Bubble } from 'react-chartjs-2';
 import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
-import convert from 'graphql2chartjs';
+import graphql2chartjs from 'graphql2chartjs';
 import '../App.css';
 
 const chartComponents = {
@@ -45,7 +45,7 @@ const App = ({type, query}) => {
                   console.error(error);
                   return <div className="loadingIndicator">Error</div>;
                 }
-                let chartJSData = convert(type, data);
+                let chartJSData = graphql2chartjs(type, data);
                 let options = {}
                 if (type === 'bar' || type === 'line' || type === 'radar') {
                   options = {
