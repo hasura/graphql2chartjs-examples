@@ -107,6 +107,31 @@ const graphqlQueries = {
       }
     }
   `,
+  mixed: `
+    query {
+      VideoGamesPriceInDollars: video_games (
+        order_by: {
+          name: asc
+        }
+      ) {
+        id
+        label:name
+        data: price
+        pointBackgroundColor: color
+        fill: false_flag
+      }
+      VideoGamesFollowers : video_games (
+        order_by: {
+          name: asc
+        }
+      ) {
+        id
+        label:name
+        data: followers
+        backgroundColor: color
+      }
+    }
+  `
 
 }
 

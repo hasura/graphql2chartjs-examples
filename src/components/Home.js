@@ -4,7 +4,7 @@ import graphqlQueries from './graphql';
 
 const chartTypes = [
   'bar', 'line', 'radar',
-  'doughnut', 'pie', 'scatter', 'bubble'
+  'doughnut', 'pie', 'scatter', 'bubble', 'mixed'
 ];
 
 const Home = ({ path }) => {

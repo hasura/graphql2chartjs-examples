@@ -14,7 +14,8 @@ const chartComponents = {
   'pie': Pie,
   'doughnut': Doughnut,
   'scatter': Scatter,
-  'bubble': Bubble
+  'bubble': Bubble,
+  'mixed': Bar
 };
 
 const App = ({type, query}) => {
@@ -45,7 +46,25 @@ const App = ({type, query}) => {
                   console.error(error);
                   return <div className="loadingIndicator">Error</div>;
                 }
-                let chartJSData = graphql2chartjs(type, data);
+                const g2c = new graphql2chartjs();
+                g2c.add(
+                  data,
+                  (
+                    type === 'mixed' ? (dataSetName, dataPoint) => {
+                      if (dataSetName === 'VideoGamesFollowers') {
+                        return { 'yAxisID': 'A', chartType: 'bar' }
+                      }
+                      return {
+                        chartType: 'line',
+                        data: dataPoint.data,
+                        yAxisID: 'B'
+                      }
+                    } : type
+                  )
+                );
+                if (type === 'mixed') {
+                  console.log(g2c.data);
+                }
                 let options = {}
                 if (type === 'bar' || type === 'line' || type === 'radar') {
                   options = {
@@ -56,9 +75,40 @@ const App = ({type, query}) => {
                     }
                   }
                 }
+                if (type === 'mixed') {
+                  options = {
+                    legend: {
+                      labels: {
+                        boxWidth: 0
+                      },
+                      display: false
+                    },
+                    scales: {
+                      yAxes: [{
+                        type: 'linear', // only linear but allow scale type registration. This allows extensions to exist solely for log scale for instance
+                        display: true,
+                        position: 'left',
+                        scaleLabel: {
+                          display: true,
+                          labelString: 'Video game followers',
+                        },
+                        id: 'A',
+                      }, {
+                        type: 'linear', // only linear but allow scale type registration. This allows extensions to exist solely for log scale for instance
+                        display: true,
+                        position: 'right',
+                        scaleLabel: {
+                          display: true,
+                          labelString: 'Video game price in dollars',
+                        },
+                        id: 'B',
+                      }],
+                    }
+                  }
+                }
                 return (
                   <Chart
-                    data={chartJSData}
+                    data={g2c.data}
                     options={options}
                   />
                 )
