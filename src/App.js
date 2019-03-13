@@ -4,10 +4,11 @@ import NavBar from './Navbar';
 
 import {
   BasicBarChart,
-  // BarExample,
-  // MultiDatasetExample,
-  // MixedTypesExample,
-  // RealtimeLiveChartExample,
+  StyledBarChart,
+  MultiDatasetBarChart,
+  MixedLineBarChart,
+  LiveChart,
+  RealtimeTimeseriesChart 
   // RealtimeTimeSeriesExample
 } from './charts';
 
@@ -17,11 +18,13 @@ const App = () => {
       <NavBar />
       <div style={{margin: '10px', paddingTop: '65px'}}>
         <BasicBarChart/>
+        <StyledBarChart/>
+        <MultiDatasetBarChart />
+        <MixedLineBarChart />
+        <LiveChart />
+        <RealtimeTimeseriesChart />
         {
           /*
-        <BarExample />
-        <MultiDatasetExample />
-        <MixedTypesExample />
         <RealtimeLiveChartExample />
         <RealtimeTimeSeriesExample />
           */

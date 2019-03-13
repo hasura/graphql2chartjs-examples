@@ -2,11 +2,23 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import ApolloClient from 'apollo-boost';
+import { ApolloClient } from 'apollo-client';
 import { ApolloProvider } from 'react-apollo';
+import { WebSocketLink } from 'apollo-link-ws';
+import { InMemoryCache } from 'apollo-cache-inmemory';
+
+const link = new WebSocketLink({
+  uri: 'wss://graphql2chartjs.hasura.app/v1alpha1/graphql',
+  options: {
+    reconnect: true
+  }
+})
+
+const cache = new InMemoryCache();
 
 const client = new ApolloClient({
-  uri: 'https://graphql2chartjs.hasura.app/v1alpha1/graphql'
+  link,
+  cache
 });
 
 ReactDOM.render(

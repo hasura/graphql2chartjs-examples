@@ -28,8 +28,12 @@ const Chart = ({ query }) => (
         }
         // create graphql2chartjs instance
         const g2c = new graphql2chartjs();
-        // add graphql data to graphql2chartjs instance
-        g2c.add(data, 'bar');
+        // add graphql data to graphql2chartjs instance while adding the backgroundcolor property
+        g2c.add(data, (datasetName, dataPoint) => ({
+          ...dataPoint,
+          chartType: 'bar',
+          backgroundColor: '#44c0c1',
+        }));
         // render chart with g2c data :)
         return (
           <Bar data={g2c.data} />
@@ -50,12 +54,12 @@ const HighlightedQuery = ({ query }) => (
   </SyntaxHighlighter>
 )
 
-const BasicBarChart = ({ path }) => {
+const StyledBarChart = ({ path }) => {
   return (
     <div style={{margin: '10px', paddingTop: '65px'}}>
-      <div key="bar">
-        <div style={{marginBottom: '20px'}} id="bar">
-            <h2 style={{margin: '10px', textAlign: 'center'}}>Basic bar chart</h2>
+      <div key="styled-bar">
+        <div style={{marginBottom: '20px'}} id="styled-bar">
+            <h2 style={{margin: '10px', textAlign: 'center'}}>Styled bar chart</h2>
             <div className="chartWrapper">
               <div className="half_screen">
                 <HighlightedQuery query={query} />
@@ -71,4 +75,4 @@ const BasicBarChart = ({ path }) => {
   )
 }
 
-export { BasicBarChart };
+export { StyledBarChart };
