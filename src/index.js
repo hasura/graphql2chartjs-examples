@@ -6,7 +6,7 @@ import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo';
 
 const client = new ApolloClient({
-  uri: 'https://graphql2chartjs.herokuapp.com/v1alpha1/graphql'
+  uri: 'https://graphql2chartjs.hasura.app/v1alpha1/graphql'
 });
 
 ReactDOM.render(
