@@ -1,13 +1,28 @@
 import React from 'react';
 import './App.css';
-import NavBar from './components/Navbar';
-import Home from './components/Home';
+import NavBar from './Navbar';
+
+import {
+  BasicBarExample,
+  BarExample,
+  MultiDatasetExample,
+  MixedTypesExample,
+  RealtimeLiveChartExample,
+  RealtimeTimeSeriesExample
+} from './charts';
 
 const App = () => {
   return (
     <div>
       <NavBar />
-      <Home />
+      <div style={{margin: '10px', paddingTop: '65px'}}>
+        <BasicBarExample />
+        <BarExample />
+        <MultiDatasetExample />
+        <MixedTypesExample />
+        <RealtimeLiveChartExample />
+        <RealtimeTimeSeriesExample />
+       </div>
     </div>
   )
 }
