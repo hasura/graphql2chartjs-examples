@@ -3,12 +3,12 @@ import './App.css';
 import NavBar from './Navbar';
 
 import {
-  BasicBarExample,
-  BarExample,
-  MultiDatasetExample,
-  MixedTypesExample,
-  RealtimeLiveChartExample,
-  RealtimeTimeSeriesExample
+  BasicBarChart,
+  // BarExample,
+  // MultiDatasetExample,
+  // MixedTypesExample,
+  // RealtimeLiveChartExample,
+  // RealtimeTimeSeriesExample
 } from './charts';
 
 const App = () => {
@@ -16,12 +16,16 @@ const App = () => {
     <div>
       <NavBar />
       <div style={{margin: '10px', paddingTop: '65px'}}>
-        <BasicBarExample />
+        <BasicBarChart/>
+        {
+          /*
         <BarExample />
         <MultiDatasetExample />
         <MixedTypesExample />
         <RealtimeLiveChartExample />
         <RealtimeTimeSeriesExample />
+          */
+        }
        </div>
     </div>
   )
