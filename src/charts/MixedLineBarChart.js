@@ -29,7 +29,7 @@ const Chart = () => (
     {
       ({data, error, loading}) => {
         if (loading || error) {
-          console.error(error);
+          if (error) console.error(error);
           return <div className="loadingIndicator">Please wait </div>;
         }
         // create graphql2chartjs instance
